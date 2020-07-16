@@ -63,16 +63,19 @@ describe("test on files without 'star chart'", () => {
 		const input = "# Title";
 		const output = `# Title
 
+## Star Chart
+
 [![Stargazers over time](https://starchart.cc/eankeen/sync-readme.svg)](https://starchart.cc/eankeen/sync-readme)
 `;
 
 		const vfile = await doRemark(input, plugins);
+		console.log(vfile.contents);
 		expect(output).toBe(vfile.contents);
 	});
 
 	test("ensure it works on a blank page", async () => {
 		const input = "";
-		const output = `# Title
+		const output = `## Star Chart
 
 [![Stargazers over time](https://starchart.cc/eankeen/sync-readme.svg)](https://starchart.cc/eankeen/sync-readme)
 `;

@@ -8,6 +8,16 @@ export default function plugin({
 	repo: string;
 }) {
 	return function transform(ast: any, file: any) {
+		const licenseHeading = {
+			type: "heading",
+			depth: 2,
+			children: [
+				{
+					type: "text",
+					value: "Star Chart",
+				},
+			],
+		};
 		const stargazerLink = {
 			type: "link",
 			url: `https://starchart.cc/${owner}/${repo}`,
@@ -20,7 +30,6 @@ export default function plugin({
 			],
 		};
 
-		let hasBeenInserted = false;
 		for (let i = 0; i < ast.children.length; ++i) {
 			const node = ast.children[i];
 			const nextNode = ast.children[i + 1];
@@ -33,14 +42,12 @@ export default function plugin({
 				// star chart is the last header
 				if (nextNode?.type !== "text") {
 					ast.children.splice(i + 1, 0, stargazerLink);
-					hasBeenInserted = true;
 				}
-				break;
+				return;
 			}
 		}
 
-		if (!hasBeenInserted) {
-			ast.children.push(stargazerLink);
-		}
+		ast.children.push(licenseHeading);
+		ast.children.push(stargazerLink);
 	};
 }
