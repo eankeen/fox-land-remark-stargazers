@@ -5,7 +5,7 @@
 	"files": [
 		"build"
 	],
-	"main": "index.js",
+	"main": "build",
 	"scripts": {
 		"build": "tsc",
 		"test": "jest"
