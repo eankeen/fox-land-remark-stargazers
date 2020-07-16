@@ -1,0 +1,26 @@
+{
+	"name": "remark-stargazers",
+	"version": "0.1.0",
+	"description": "",
+	"files": [
+		"build"
+	],
+	"main": "index.js",
+	"scripts": {
+		"build": "tsc",
+		"test": "jest"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"remark": "^12.0.0"
+	},
+	"devDependencies": {
+		"@types/jest": "^26.0.4",
+		"@types/node": "^14.0.23",
+		"jest": "^26.1.0",
+		"ts-jest": "^26.1.2",
+		"typescript": "^3.9.6"
+	}
+}
