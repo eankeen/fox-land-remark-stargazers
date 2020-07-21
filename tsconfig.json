@@ -5,6 +5,7 @@
 		"module": "CommonJS",
 		"lib": ["ES2018"],
 		"strict": true,
+		"declaration": true,
 		"esModuleInterop": true,
 		"outDir": "build",
 		"isolatedModules": true,
