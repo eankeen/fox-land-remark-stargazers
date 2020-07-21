@@ -1,12 +1,9 @@
 import remark from "remark";
-import remarkStargazers from "../src";
+import remarkStargazers, { IRemarkStarChart } from "../src";
 
 interface Plugin {
 	fn: any;
-	options: {
-		owner: string;
-		repo: string;
-	};
+	options: IRemarkStarChart;
 }
 
 export function doRemark(input: string, plugins: Plugin[]): Promise<any> {
@@ -40,6 +37,7 @@ describe("work with files that have 'star chart'", () => {
 `;
 
 		const vfile = await doRemark(input, plugins);
+		console.log(vfile.contents);
 		expect(output).toBe(vfile.contents);
 	});
 
